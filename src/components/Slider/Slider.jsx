@@ -28,7 +28,7 @@ const Slider = () => {
             <div>
               {parseInt(item.id) === slideIndex && (
                 <img
-                  className='h-[850px] w-full'
+                  className='h-[850px] w-full object-cover'
                   src={item.img}
                   alt={item.text}
                 />

@@ -32,7 +32,7 @@ const NavigateButtons = () => {
                 size='lg'
                 variant='outlined'
                 ripple={true}
-                className='hover:bg-green-300 duration-300 ease-out'
+                className='hover:bg-gray-300 duration-300 ease-out'
                 onClick={() => dispatch(filterProducts(btn))}
               >
                 {btn}
@@ -41,7 +41,7 @@ const NavigateButtons = () => {
           </div>
         ))}
       </div>
-      <div className='bg-green-300 p-2 w-[55%] mx-auto rounded-md'>
+      <div className='bg-black p-2 w-[55%] mx-auto rounded-md'>
         <h3 className='text-orange-900 text-center text-lg font-inter font-bold tracking-normal leading-none'>
           SALES UP TO 50%
         </h3>
@@ -50,7 +50,7 @@ const NavigateButtons = () => {
         <img
           src={clothes}
           alt='Clothes'
-          className='h-[600px] w-[70%] rounded-md shadow-lg shadow-gray-600'
+          className='h-[600px] w-[70%] rounded-md shadow-lg shadow-gray-600 object-fill'
         />
       </div>
     </>
