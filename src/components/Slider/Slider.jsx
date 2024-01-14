@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useSelector, useDispatch } from 'react-redux'
 
 import { sliderData } from '../../assets/data/data'
@@ -42,13 +43,13 @@ const Slider = () => {
         ))}
       </div>
       <div className='flex absolute bottom-12 left-[50%] translate-x-[-50%]'>
-        {sliderData.map((index) => (
-          <div key={index} className='mr-4'>
+        {sliderData.map((item, index) => (
+          <div key={index} className='mr-2'>
             <div
               className={
                 index === slideIndex
-                  ? 'bg-green-300 rounded-full p-4 cursor-pointer'
-                  : 'bg-white-300 rounded-full p-4 cursor-pointer'
+                  ? 'bg-green-300 rounded-full p-1 cursor-pointer'
+                  : 'bg-white rounded-full p-1 cursor-pointer'
               }
               onClick={() => dispatch(dotSlide(index))}
             ></div>

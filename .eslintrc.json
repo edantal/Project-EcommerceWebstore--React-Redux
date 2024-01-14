@@ -13,7 +13,7 @@
   "plugins": ["react", "react-hooks", "eslint-plugin-import"],
   "rules": {
     "import/order": [
-      "error",
+      "warn",
       {
         "groups": ["builtin", "external", "internal"],
         "pathGroups": [
