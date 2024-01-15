@@ -99,7 +99,7 @@ const SingleProduct = () => {
                     color='gray'
                     size='lg'
                     variant='outlined'
-                    ripple='ture'
+                    ripple={true}
                     onClick={() =>
                       dispatch(
                         addToCart({
@@ -108,8 +108,10 @@ const SingleProduct = () => {
                           amount: 1,
                           totalPrice: item.price,
                           name: item.name,
-                          size: item.size,
-                          color: item.color,
+                          text: item.text,
+                          img: item.img,
+                          size: size,
+                          color: color,
                         })
                       )
                     }

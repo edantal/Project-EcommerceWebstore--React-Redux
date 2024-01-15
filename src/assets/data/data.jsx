@@ -490,7 +490,7 @@ export const storeData = [
     price: 100,
   },
   {
-    id: '37',
+    id: '64',
     img: jeans5,
     name: 'Casual Jeans 5',
     text: 'Fashion never stops. There is always the new project, the new opportunity. The important thing is to take your time and not get stressed. I just want to do what I do.',
