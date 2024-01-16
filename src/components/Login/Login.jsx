@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import { useDispatch } from 'react-redux'
 import {
   Card,
   CardHeader,
@@ -10,9 +11,12 @@ import {
   Button,
 } from '@material-tailwind/react'
 
+import { login } from '../../features/slices/authSlice'
+
 const Login = () => {
+  const dispatch = useDispatch()
   const initialState = {
-    email: '',
+    name: '',
     password: '',
     image: '',
   }
@@ -20,8 +24,8 @@ const Login = () => {
   const [values, setValues] = useState(initialState)
 
   const handleChange = (e) => {
-    const { email, value } = e.target
-    setValues({ ...values, [email]: value })
+    const { name, value } = e.target
+    setValues({ ...values, [name]: value })
   }
 
   return (
@@ -38,11 +42,11 @@ const Login = () => {
         </CardHeader>
         <CardBody className='flex flex-col gap-4'>
           <Input
-            label='Email'
+            label='Name'
             size='lg'
-            type='email'
-            name='email'
-            value={values.email}
+            type='text'
+            name='name'
+            value={values.name}
             onChange={handleChange}
           />
           <Input
@@ -63,7 +67,11 @@ const Login = () => {
           />
         </CardBody>
         <CardFooter className='pt-0'>
-          <Button variant='gradient' fullWidth>
+          <Button
+            variant='gradient'
+            fullWidth
+            onClick={() => dispatch(login(values))}
+          >
             Sign In
           </Button>
           {/* <Typography variant='small' className='mt-6 flex justify-center'>

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import './App.css'
 import Main from './components/Main/Main'
@@ -9,12 +10,16 @@ import SingleProduct from './components/FilteredProducts/SingleProduct'
 import Login from './components/Login/Login'
 
 function App() {
+  const user = useSelector((state) => state.user.user)
+  const { authUser } = user
+  console.log('user', user)
+  console.log('authUser', authUser)
+
   return (
     <div className='App'>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={authUser ? <Main /> : <Login />} />
           <Route
             path='/filteredProducts/:type'
             element={<FilteredProducts />}
