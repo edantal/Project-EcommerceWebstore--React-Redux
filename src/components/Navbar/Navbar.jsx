@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { Avatar, Button, Tooltip } from '@material-tailwind/react'
 
 import logo from '../../assets/images/logo.png'
 import Cart from '../Cart/Cart'
+import { logout } from '../../features/slices/authSlice'
 
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user.user)
+  const { name, image } = user
   const totalAmount = useSelector((state) => state.cart.totalAmount)
   const [open, setOpen] = useState(false)
 
@@ -74,6 +79,23 @@ const Navbar = () => {
               Cart
             </p>
             <div>{open && <Cart openModal={open} setOpen={setOpen} />}</div>
+          </div>
+          <div className='flex flex-row items-center justify-center pl-4'>
+            {image && (
+              <Avatar
+                src={image}
+                alt='avatar'
+                size='sm'
+                className='mr-2 border-black'
+              />
+            )}
+          </div>
+          <div onClick={() => dispatch(logout())}>
+            <Tooltip content='Sign out' placement='bottom'>
+              <p className='font-inter font-medium text-sm tracking-normal leading-none'>
+                Hi {name.charAt('0').toUpperCase() + name.slice(1)}
+              </p>
+            </Tooltip>
           </div>
         </div>
       </div>
