@@ -12,8 +12,6 @@ import Login from './components/Login/Login'
 function App() {
   const user = useSelector((state) => state.user.user)
   const { authUser } = user
-  console.log('user', user)
-  console.log('authUser', authUser)
 
   return (
     <div className='App'>
